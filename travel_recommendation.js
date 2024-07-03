@@ -1,38 +1,29 @@
-const btnSearch = document.getElementById('btnsearch');
+//const btnSearch = document.getElementById('btnsearch');
 
-function searchPlaces() {
-    console.log("hello");
-
-    const input = document.getElementById('searchbar').value.toLowerCase();
+/*function searchPlaces() {
+    console.log("inside js file")
+    //const input = document.getElementById('conditionInput').value.toLowerCase();
+    const input = document.getElementById('conditionInput').ariaValueMax.toLowerCase();
     const resultDiv = document.getElementById('travellist');
     resultDiv.innerHTML = '';
 
     fetch('./travel_recommendation_api.json')
 .then(res=>res.json())
 .then((data) => {
-   // console.log(data.countries[0].name)
    const condition = data.countries.find(item => item.name.toLowerCase() === input);
-   console.log('condition',condition)
+
+   //console.log("data",input)
+   
     const placeInfo = document.getElementById('travellist');
 
-    const countries = data.countries.name;
-    console.log('condition1',countries)
-        const temples = data.temples;
-        console.log('condition2',temples)
-        const beachs = data.beaches;
-        console.log('condition3',beachs)
-
     if (condition) {
-        const countries = data.countries.name;
-        const temples = data.temples;
-        const beachs = data.beaches;
+        const countries = condition.countries.join(', ');
+        const temples = condition.temples.join(', ');
+        const beaches = condition.beaches;
 
+        console.log('inside country')
         resultDiv.innerHTML += `<h2>${condition.name}</h2>`;
         resultDiv.innerHTML += `<img src="${condition.imagesrc}" alt="hjh">`;
-
-        resultDiv.innerHTML += `<p><strong>Symptoms:</strong> ${symptoms}</p>`;
-        resultDiv.innerHTML += `<p><strong>Prevention:</strong> ${prevention}</p>`;
-        resultDiv.innerHTML += `<p><strong>Treatment:</strong> ${treatment}</p>`;
       } else {
         resultDiv.innerHTML = 'Condition not found.';
       }    
@@ -45,13 +36,12 @@ function searchPlaces() {
 
        
    // });
-   btnSearch.addEventListener('click', searchPlaces);
+   
 
-})
+        <li><img src="${data.beaches[0].imageUrl}" alt="hjh"></li>
+});
 }
-function showVacationDetails(event) {
-    event.preventDefault();
-}
+//btnSearch.addEventListener('submit', searchPlaces);
 /*fetch(apiUrl)
 .then(response => response.json())
 .then(data => {
@@ -70,3 +60,37 @@ document.getElementById('weatherForm').addEventListener('submit',showweatherDeta
     `;
 */
 
+
+function searchPlaces(){
+    console.log("hey")
+    const input = document.getElementById('conditionInput');
+
+  const filter = input.value.toLowerCase();
+
+    const resultDiv = document.getElementById('travellist');
+    resultDiv.innerHTML = '';
+
+    fetch('./travel_recommendation_api.json')
+.then(res=>res.json())
+.then((data) => {
+    console.log("beaches",data.beaches[0].name)
+    for (var key in data) {
+        for (var i = 0; i < data[key].length; i++) {
+            var name = data[key][i].name;
+            var desc = data[key][i].description;
+            var pic = data[key][i].imageUrl;
+            if(filter == "beaches"){
+
+                resultDiv.innerHTML =  `<ul>
+                <li>${name}</li>
+                <li>${desc}</li>
+                
+                </ul>`
+            }
+        }
+    }
+   
+    
+
+});
+}
