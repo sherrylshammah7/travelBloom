@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="./travel_recommendation.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -18,7 +19,7 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  background-image: url("/w3images/mac.jpg");
+  background-image: url(./vac.jpg);
   min-height: 100%;
 }
 
@@ -38,16 +39,26 @@ body, html {
       <a href="#about" class="w3-bar-item w3-button">ABOUT US</a>
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
 
-  <input type="text" placeholder="Search.." class="w3-bar-item w3-button">
+      <form class="w3-bar-item w3-form" id="searchVacation" >
+        <input id="searchbar" onkeyup ="searchPlaces()" type="text" class="w3-bar-item w3-button" placeholder="search..."/>
+        <button id="clear" class="clear-results">clear</button>
+    </form>
+  
     </div>
   
   </div>
+</div>
+</div>
+<div class="w3-display-right w3-text-white" id ="travellist">
+   
+
+</li>
 </div>
 
 
 
 <!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+<header class="bgimg-1  " id="home">
   <div class="w3-display-left w3-text-black" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">EXPLORE DREAM DESTINATION</span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
@@ -136,33 +147,11 @@ body, html {
 </div>
 
 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
-
-// Close the sidebar with the close button deltet
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
 
 </body>
+
+<div >heyyyy</div>
 </html>
+
+
 
